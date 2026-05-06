@@ -1,0 +1,16 @@
+version: "3.8"
+services:
+  backend:
+    build:
+      context: ./backend
+      args:
+        APP_SECRET_NAME: ${APP_SECRET_NAME}
+    image: ${DOCKERHUB_USERNAME}/backend:latest
+    ports:
+      - "3001:3001"
+
+  frontend:
+    build: ./frontend
+    image: ${DOCKERHUB_USERNAME}/frontend:latest
+    ports:
+      - "3000:3000"
